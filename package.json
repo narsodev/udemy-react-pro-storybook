@@ -1,5 +1,9 @@
 {
   "name": "@narsodev/my-storybook",
+  "author": {
+    "name": "Narsodev",
+    "email": "narsodev@gmail.com"
+  },
   "version": "0.1.0",
   "private": false,
   "license": "MIT",
