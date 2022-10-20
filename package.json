@@ -1,7 +1,27 @@
 {
-  "name": "my-storybook",
+  "name": "@narsodev/my-storybook",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/narsodev/udemy-react-pro-storybook"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "homepage": "https://github.com/narsodev/udemy-react-pro-storybook",
+  "peerDependencies": {
+    "react": ">=16"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -10,14 +30,16 @@
     "@types/node": "^16.11.66",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "npm run clean && tsc && npm run copy-files",
+    "build-storybook": "build-storybook",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.{json,txt,html,jpg,jpeg,png,gif,css} dist/"
   },
   "eslintConfig": {
     "extends": [
@@ -68,7 +90,18 @@
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.12",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.1",
-    "postcss": "^8.4.18"
-  }
+    "postcss": "^8.4.18",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^19.0.5"
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }

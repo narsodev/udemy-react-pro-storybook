@@ -1,6 +1,6 @@
 import './Label.css'
 
-interface Props {
+export interface Props {
   /**
    * Text displayed by the component
    */
